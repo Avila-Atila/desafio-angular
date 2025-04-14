@@ -1,0 +1,53 @@
+:host {
+  height: 100%;
+  display: flex;
+}
+.section__login {
+  display: flex;
+}
+
+.section__login__div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.bg__color {
+  background-color: #f0f0f088;
+}
+.section__login__div__carro__img {
+  width: 80%;
+  opacity: 70%;
+}
+
+.section__login__logo {
+  width: 20%;
+  margin-bottom: auto;
+  margin-top: 2%;
+}
+#form {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20%;
+  flex-direction: column;
+  margin-bottom: auto;
+  width: 60%;
+}
+
+.section__login__div__form__input {
+  width: 99%;
+  padding: 1%;
+}
+.section__login__div__form__submit {
+  width: 100%;
+  color: white;
+  background-color: #b4bdbf;
+  border: none;
+  padding: 1%;
+}
+
+.autoLogin {
+  margin-left: auto;
+}

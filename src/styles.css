@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100dvh;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
