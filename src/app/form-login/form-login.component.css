@@ -1,0 +1,43 @@
+:host {
+  width: 100%;
+  flex: 1;
+  display: flex;
+}
+h2 {
+  color: #5ea589;
+}
+.section__login__div__form__input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1%;
+}
+.section__login__div__form__submit {
+  width: 100%;
+  color: white;
+  background-color: #b4bdbf;
+  border: none;
+  padding: 2%;
+}
+
+.autoLogin {
+  width: 100%;
+  text-align: end;
+}
+.autoLogin__checkbox {
+  margin-left: 20%;
+}
+#form {
+  margin: auto auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 30%;
+  gap: 10%;
+  width: 75%;
+}
+
+.validado {
+  background-color: #3626be;
+}
