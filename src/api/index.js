@@ -124,3 +124,25 @@ app.post("/vehicleData", (req, res) => {
 app.listen(3001, () => {
   console.log("http://localhost:3001/");
 });
+
+// async submitUsuario() {
+//   // await this.request.loginUsuario('555');
+//   // await this.request.teste(this.login);
+//   // await fetch('http://localhost:3001/login', {
+//   //   method: 'POST',
+//   //   headers: {
+//   //     'Tipo-Request': 'application/json',
+//   //   },
+//   //   body: JSON.stringify(this.login.value),
+//   // });
+//   console.log(this.login.value);
+//   const response = await fetch('http://localhost:3001/login', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/x-www-form-urlencoded',
+//     },
+//     // Automatically converted to "username=example&password=password"
+//     body: JSON.stringify(this.login.value),
+//     // ...
+//   });
+// }

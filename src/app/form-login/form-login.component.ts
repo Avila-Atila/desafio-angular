@@ -15,10 +15,30 @@ import { RequestService } from '../services/request.service';
 })
 export class FormLoginComponent {
   login = new FormGroup({
-    email: new FormControl('', [Validators.email, Validators.required]),
+    nome: new FormControl('', [Validators.required]),
     senha: new FormControl('', [Validators.required]),
-    permanecerLogado: new FormControl<boolean | null>(null),
+    // permanecerLogado: new FormControl<boolean | null>(false),
   });
 
-  submitUsuario() {}
+  // async submitUsuario() {
+  //   console.log(this.login.value);
+  //   await fetch('http://localhost:3001/login', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(this.login.value),
+  //   });
+  // }
+  async submitUsuario() {
+    await fetch('http://localhost:3001/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // Automatically converted to "username=example&password=password"
+      body: JSON.stringify(this.login.value),
+      // ...
+    });
+  }
 }
