@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -6,10 +6,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { RequestService } from '../services/request.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './form-login.component.html',
   styleUrl: './form-login.component.css',
 })
@@ -17,28 +18,9 @@ export class FormLoginComponent {
   login = new FormGroup({
     nome: new FormControl('', [Validators.required]),
     senha: new FormControl('', [Validators.required]),
-    // permanecerLogado: new FormControl<boolean | null>(false),
   });
-
-  // async submitUsuario() {
-  //   console.log(this.login.value);
-  //   await fetch('http://localhost:3001/login', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(this.login.value),
-  //   });
-  // }
+  teste = inject(RequestService);
   async submitUsuario() {
-    await fetch('http://localhost:3001/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // Automatically converted to "username=example&password=password"
-      body: JSON.stringify(this.login.value),
-      // ...
-    });
+    await this.teste.loginUsuario(this.login);
   }
 }

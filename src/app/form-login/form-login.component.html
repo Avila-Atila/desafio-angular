@@ -4,6 +4,7 @@
     placeholder="Insira seu e-mail"
     class="section__login__div__form__input"
     formControlName="nome"
+    name="email"
   />
   <input
     placeholder="Insira sua senha"
@@ -11,11 +12,12 @@
     required
     type="password"
     formControlName="senha"
+    name="senha"
   />
-  <!-- <label class="autoLogin"
+  <label class="autoLogin"
     >Logar automaticamente
     <input class="autoLogin__checkbox" type="checkbox" name="autoLogin" />
-  </label> -->
+  </label>
   <button
     class="section__login__div__form__submit"
     type="submit"
@@ -24,4 +26,6 @@
   >
     Entrar
   </button>
+
+  <p *ngIf="teste.test5 !== null">{{ teste.test5 }}</p>
 </form>

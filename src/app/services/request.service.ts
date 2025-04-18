@@ -1,29 +1,27 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RequestService {
-  http = inject(HttpClient);
-  async loginUsuario(info: any) {
-    const linkApiLogin = 'http://localhost:3001/login';
-    await fetch(linkApiLogin, {
-      method: 'POST',
-      headers: {
-        'Tipo-Request': 'application/json',
-      },
-      body: JSON.stringify(info),
-    });
-  }
-  async teste(info: any) {
-    const novoTeste = JSON.stringify(info.value);
-    await fetch('http://localhost:3001/login', {
-      method: 'POST',
-      headers: {
-        'Tipo-Request': 'application/json',
-      },
-      body: novoTeste,
-    });
+  test5: string | null = null;
+
+  async loginUsuario(info: FormGroup) {
+    try {
+      const request = await fetch('http://localhost:3001/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(info.value),
+      });
+      if (!request.ok) {
+        throw (await request.json()).message;
+      }
+      this.test5 = null;
+    } catch (error) {
+      this.test5 = String(error);
+    }
   }
 }

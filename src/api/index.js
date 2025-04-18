@@ -5,12 +5,12 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname)));
 
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
   try {
     const { nome, senha } = req.body;
 
@@ -20,7 +20,7 @@ app.post("/login", (req, res) => {
       });
     }
 
-    if (nome !== "admin" || senha !== "123") {
+    if (nome !== "admin" || senha !== "123456") {
       return res.status(401).json({
         message:
           "O nome de usuário ou senha está incorreto ou não foi cadastrado!",
@@ -35,6 +35,7 @@ app.post("/login", (req, res) => {
   } catch (error) {
     return res.status(500).json({
       message: "Falha na comunicação com o servidor!",
+      error: String(error),
     });
   }
 });
@@ -45,9 +46,9 @@ app.get("/vehicles", (req, res) => {
       {
         id: 1,
         vehicle: "Ranger",
-        volumetotal: 1500,
-        connected: 500,
-        softwareUpdates: 750,
+        volumetotal: 145760,
+        connected: 70000,
+        softwareUpdates: 27550,
         img: "http://localhost:3001/img/ranger.png",
       },
       {
@@ -61,17 +62,17 @@ app.get("/vehicles", (req, res) => {
       {
         id: 3,
         vehicle: "Territory",
-        volumetotal: 1500,
-        connected: 500,
-        softwareUpdates: 750,
+        volumetotal: 4560,
+        connected: 4000,
+        softwareUpdates: 3050,
         img: "http://localhost:3001/img/territory.png",
       },
       {
         id: 4,
         vehicle: "Bronco Sport",
-        volumetotal: 1500,
-        connected: 500,
-        softwareUpdates: 750,
+        volumetotal: 7560,
+        connected: 4060,
+        softwareUpdates: 2050,
         img: "http://localhost:3001/img/broncoSport.png",
       },
     ];
@@ -92,6 +93,26 @@ app.post("/vehicleData", (req, res) => {
       case "2FRHDUYS2Y63NHD22454":
         return res.status(200).json({
           id: 1,
+          odometro: 23344,
+          nivelCombustivel: 76,
+          status: "on",
+          lat: -12.2322,
+          long: -35.2314,
+        });
+
+      case "2RFAASDY54E4HDU34874":
+        return res.status(200).json({
+          id: 2,
+          odometro: 130000,
+          nivelCombustivel: 19,
+          status: "off",
+          lat: -12.2322,
+          long: -35.2314,
+        });
+
+      case "2FRHDUYS2Y63NHD22455":
+        return res.status(200).json({
+          id: 3,
           odometro: 50000,
           nivelCombustivel: 90,
           status: "on",
@@ -99,11 +120,31 @@ app.post("/vehicleData", (req, res) => {
           long: -35.2314,
         });
 
-      case "2RFAASOYS4E4HDU34875":
+      case "2RFAASDY54E4HDU34875":
         return res.status(200).json({
-          id: 2,
+          id: 4,
           odometro: 10000,
-          nivelCombustivel: 90,
+          nivelCombustivel: 25,
+          status: "off",
+          lat: -12.2322,
+          long: -35.2314,
+        });
+
+      case "2FRHDUYS2Y63NHD22654":
+        return res.status(200).json({
+          id: 5,
+          odometro: 23544,
+          nivelCombustivel: 76,
+          status: "on",
+          lat: -12.2322,
+          long: -35.2314,
+        });
+
+      case "2FRHDUYS2Y63NHD22854":
+        return res.status(200).json({
+          id: 6,
+          odometro: 23574,
+          nivelCombustivel: 76,
           status: "on",
           lat: -12.2322,
           long: -35.2314,
@@ -122,27 +163,5 @@ app.post("/vehicleData", (req, res) => {
 });
 
 app.listen(3001, () => {
-  console.log("http://localhost:3001/");
+  console.log("API running on http://localhost:3001/");
 });
-
-// async submitUsuario() {
-//   // await this.request.loginUsuario('555');
-//   // await this.request.teste(this.login);
-//   // await fetch('http://localhost:3001/login', {
-//   //   method: 'POST',
-//   //   headers: {
-//   //     'Tipo-Request': 'application/json',
-//   //   },
-//   //   body: JSON.stringify(this.login.value),
-//   // });
-//   console.log(this.login.value);
-//   const response = await fetch('http://localhost:3001/login', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/x-www-form-urlencoded',
-//     },
-//     // Automatically converted to "username=example&password=password"
-//     body: JSON.stringify(this.login.value),
-//     // ...
-//   });
-// }
