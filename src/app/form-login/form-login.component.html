@@ -27,5 +27,6 @@
     Entrar
   </button>
 
-  <p *ngIf="teste.test5 !== null">{{ teste.test5 }}</p>
+  <p *ngIf="validarLogin !== null">{{ validarLogin }}</p>
+  <div *ngIf="usuarioAtual !== null">{{ usuarioAtual.email }}</div>
 </form>

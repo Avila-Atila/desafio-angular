@@ -40,4 +40,10 @@ h2 {
 
 .validado {
   background-color: #3626be;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.validado:hover {
+  transform: scale(1.05);
 }
