@@ -1,0 +1,51 @@
+:host {
+  background-image: url("/ranger.png");
+  height: 100%;
+  display: flex;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+}
+
+.section__home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.section__home__bemvindo {
+  margin: 20vh auto auto auto;
+  background-color: white;
+  height: 50vh;
+  width: 32vw;
+  opacity: 80%;
+  border: 2px solid grey;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px 2px grey;
+  display: flex;
+  flex-direction: column;
+}
+
+.section__home__bemvindo__div__titulo {
+  background-color: rgba(128, 128, 128, 0.336);
+  padding: 2%;
+}
+
+.section__home__bemvindo__div__mensagem {
+  flex: 1;
+  padding: 2%;
+  span {
+    color: blue;
+    text-transform: capitalize;
+  }
+}
+
+#teste {
+  padding: 1%;
+}
+
+#teste2 {
+  padding: 1%;
+  display: flex;
+  justify-content: space-between;
+}

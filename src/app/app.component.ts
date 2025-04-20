@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'desafio_angular';
+  title = 'Sistema_de_Dados_FORD';
 }

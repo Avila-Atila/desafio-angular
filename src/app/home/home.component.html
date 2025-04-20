@@ -1,4 +1,20 @@
-<p>home works!</p>
-
-<p *ngIf="servico.UsuarioLogado()">{{ servico.UsuarioLogado()?.email }}</p>
-<div><button (click)="servico.logout()">deslogar</button></div>
+<section class="section__home">
+  <div id="teste2">
+    <nav><button [routerLink]="">Home</button></nav>
+    <button>ssa</button>
+  </div>
+  <div class="section__home__bemvindo">
+    <div class="section__home__bemvindo__div__titulo">
+      <h4>Sistema de dados FORD</h4>
+    </div>
+    <div class="section__home__bemvindo__div__mensagem">
+      <p>
+        Seja bem vindo(a)! <br />
+        Seu acesso como <span> {{ servico.UsuarioLogado()!.nome }} </span>foi
+        registrado em:
+        {{ dataDeAceso }}
+      </p>
+    </div>
+    <button (click)="servico.logout()">deslogar</button>
+  </div>
+</section>

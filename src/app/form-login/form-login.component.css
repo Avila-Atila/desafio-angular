@@ -22,10 +22,14 @@ h2 {
 .autoLogin {
   width: 100%;
   text-align: end;
+  p {
+    display: inline-block;
+  }
 }
 .autoLogin__checkbox {
-  margin-left: 20%;
+  /* display: none; */
 }
+
 #form {
   margin: auto auto;
 
