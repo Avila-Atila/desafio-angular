@@ -1,20 +1,55 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { BehaviorSubject, Observable, pipe, tap } from 'rxjs';
-import { usuarioLogin } from './models/usuarioLogin.model';
+import { Observable } from 'rxjs';
 import { Usuario } from './models/usuario.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RequestService {
-  constructor(private http: HttpClient) {}
-
+  UsuarioLogado = signal<Usuario | null>(null);
+  loginAutomatico = signal<boolean>(false);
+  chaveUsuario = 'usuario';
   private apiLogin = 'http://localhost:3001/login';
-  private apiCarros = 'http://localhost:3001/vehicles';
 
-  novoLogin(info: FormGroup): Observable<usuarioLogin> {
-    return this.http.post<usuarioLogin>(this.apiLogin, info.value);
+  constructor(private http: HttpClient, private router: Router) {
+    const infoLocal = localStorage.getItem(this.chaveUsuario);
+    if (infoLocal) {
+      const usuario: Usuario = JSON.parse(infoLocal);
+      this.UsuarioLogado.set(usuario);
+      this.loginAutomatico.set(true);
+    }
+  }
+
+  novoLogin(info: FormGroup): Observable<Usuario> {
+    return this.http.post<Usuario>(this.apiLogin, info.value);
+  }
+
+  loginCorreto(info: Usuario, loginAutomatico: boolean) {
+    if (loginAutomatico) {
+      localStorage.setItem(this.chaveUsuario, JSON.stringify(info));
+      this.UsuarioLogado.set(info);
+      this.loginAutomatico.set(true);
+    } else {
+      sessionStorage.setItem(this.chaveUsuario, JSON.stringify(info));
+      this.UsuarioLogado.set(info);
+    }
+  }
+
+  logout() {
+    localStorage.removeItem(this.chaveUsuario);
+    sessionStorage.removeItem(this.chaveUsuario);
+    this.UsuarioLogado.set(null);
+    this.router.navigate(['login']);
+  }
+
+  autologin() {
+    if (this.loginAutomatico()) {
+      this.router.navigate(['/home']);
+    } else {
+      this.UsuarioLogado.set(null);
+    }
   }
 }

@@ -1,1 +1,4 @@
 <p>home works!</p>
+
+<p *ngIf="servico.UsuarioLogado()">{{ servico.UsuarioLogado()?.email }}</p>
+<div><button (click)="servico.logout()">deslogar</button></div>

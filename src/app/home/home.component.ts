@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RequestService } from '../services/request.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  servico = inject(RequestService);
+  constructor(private router: Router) {}
+}

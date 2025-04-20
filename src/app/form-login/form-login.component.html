@@ -9,14 +9,18 @@
   <input
     placeholder="Insira sua senha"
     class="section__login__div__form__input"
-    required
     type="password"
     formControlName="senha"
     name="senha"
   />
   <label class="autoLogin"
     >Logar automaticamente
-    <input class="autoLogin__checkbox" type="checkbox" name="autoLogin" />
+    <input
+      class="autoLogin__checkbox"
+      name="autoLogin"
+      formControlName="loginAutomatico"
+      type="checkbox"
+    />
   </label>
   <button
     class="section__login__div__form__submit"
@@ -27,6 +31,5 @@
     Entrar
   </button>
 
-  <p *ngIf="validarLogin !== null">{{ validarLogin }}</p>
-  <div *ngIf="usuarioAtual !== null">{{ usuarioAtual.email }}</div>
+  <p *ngIf="erroLogin !== null">{{ erroLogin }}</p>
 </form>

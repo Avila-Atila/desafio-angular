@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { RequestService } from '../services/request.service';
 import { CommonModule } from '@angular/common';
-import { Usuario } from '../services/models/usuario.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-login',
@@ -16,21 +16,29 @@ import { Usuario } from '../services/models/usuario.model';
   styleUrl: './form-login.component.css',
 })
 export class FormLoginComponent {
-  validarLogin: string | null = null;
-  usuarioAtual: Usuario | null = null;
+  ngOnInit() {
+    this.servico.autologin();
+  }
+
+  constructor(private router: Router, private servico: RequestService) {}
+
   login = new FormGroup({
     nome: new FormControl('', [Validators.required]),
     senha: new FormControl('', [Validators.required]),
+    loginAutomatico: new FormControl(false),
   });
-  requestService = inject(RequestService);
+
+  erroLogin: string | null = null;
+
   submitUsuario() {
-    this.requestService.novoLogin(this.login).subscribe({
+    const autoLoginCheck = this.login.get('loginAutomatico')!.value;
+    this.servico.novoLogin(this.login).subscribe({
       next: (response) => {
-        this.validarLogin = null;
-        this.usuarioAtual = response;
-        console.log(this.usuarioAtual);
+        this.erroLogin = null;
+        this.servico.loginCorreto(response, autoLoginCheck!);
+        this.router.navigate(['/home']);
       },
-      error: (err) => (this.validarLogin = err.error.message),
+      error: (err) => (this.erroLogin = err.error.message),
     });
   }
 }
