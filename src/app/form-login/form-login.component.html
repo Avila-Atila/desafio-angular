@@ -1,32 +1,49 @@
 <form [formGroup]="login" (ngSubmit)="submitUsuario()" id="form">
   <h2>Boas-vindas</h2>
-  <input
-    placeholder="Insira seu nome de usuário"
-    class="section__login__div__form__input"
-    formControlName="nome"
-    name="nome"
-    autocomplete="given-name"
-  />
-  <input
-    placeholder="Insira sua senha"
-    class="section__login__div__form__input"
-    type="password"
-    formControlName="senha"
-    name="senha"
-  />
+  <div class="section__login__div__form__icon">
+    <i class="fa-solid fa-user" style="color: #63e6be"></i>
 
-  <div class="form-check form-switch form-check-reverse">
-    <label class="form-check-label" for="flexSwitchCheckDefault"
-      >Logar automaticamente
-    </label>
     <input
-      name="autoLogin"
-      class="form-check-input"
-      type="checkbox"
-      role="switch"
-      id="flexSwitchCheckDefault"
-      formControlName="loginAutomatico"
+      placeholder="Insira seu nome de usuário"
+      class="section__login__div__form__input"
+      formControlName="nome"
+      name="nome"
+      autocomplete="given-name"
+      id="section__login__div__form__input__nome"
     />
+  </div>
+  <div class="section__login__div__form__icon">
+    <i class="fa-solid fa-lock" style="color: #63e6be"></i>
+    <input
+      placeholder="Insira sua senha"
+      class="section__login__div__form__input"
+      type="password"
+      formControlName="senha"
+      name="senha"
+      id="section__login__div__form__input__senha"
+    />
+  </div>
+  <div class="autologin">
+    <p>Logar automaticamente</p>
+    <label class="autologin__label">
+      <input
+        name="autoLogin"
+        class="autologin__checkbox"
+        type="checkbox"
+        formControlName="loginAutomatico"
+      />
+      <div class="autologin__switch">
+        <span
+          class="autologin__control"
+          [class.autologin__control__selecionado]="login.value.loginAutomatico"
+          ><i
+            *ngIf="!login.value.loginAutomatico"
+            class="fa-solid fa-xmark"
+          ></i>
+          <i *ngIf="login.value.loginAutomatico" class="fa-solid fa-check"></i>
+        </span>
+      </div>
+    </label>
   </div>
 
   <button
