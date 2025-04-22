@@ -1,10 +1,11 @@
 <form [formGroup]="login" (ngSubmit)="submitUsuario()" id="form">
   <h2>Boas-vindas</h2>
   <input
-    placeholder="Insira seu e-mail"
+    placeholder="Insira seu nome de usuário"
     class="section__login__div__form__input"
     formControlName="nome"
-    name="email"
+    name="nome"
+    autocomplete="given-name"
   />
   <input
     placeholder="Insira sua senha"
@@ -13,15 +14,21 @@
     formControlName="senha"
     name="senha"
   />
-  <label class="autoLogin"
-    >Logar automaticamente
+
+  <div class="form-check form-switch form-check-reverse">
+    <label class="form-check-label" for="flexSwitchCheckDefault"
+      >Logar automaticamente
+    </label>
     <input
-      class="autoLogin__checkbox"
       name="autoLogin"
-      formControlName="loginAutomatico"
+      class="form-check-input"
       type="checkbox"
+      role="switch"
+      id="flexSwitchCheckDefault"
+      formControlName="loginAutomatico"
     />
-  </label>
+  </div>
+
   <button
     class="section__login__div__form__submit"
     type="submit"
@@ -31,5 +38,5 @@
     Entrar
   </button>
 
-  <p *ngIf="erroLogin !== null">{{ erroLogin }}</p>
+  <p *ngIf="erroLogin !== null">Erro: {{ erroLogin }}</p>
 </form>

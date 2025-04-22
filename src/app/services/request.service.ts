@@ -11,15 +11,19 @@ import { Router } from '@angular/router';
 export class RequestService {
   UsuarioLogado = signal<Usuario | null>(null);
   loginAutomatico = signal<boolean>(false);
-  chaveUsuario = 'usuario';
+  private chaveUsuario: string = 'usuario';
   private apiLogin = 'http://localhost:3001/login';
 
   constructor(private http: HttpClient, private router: Router) {
     const infoLocal = localStorage.getItem(this.chaveUsuario);
+    const infoSession = sessionStorage.getItem(this.chaveUsuario);
     if (infoLocal) {
       const usuario: Usuario = JSON.parse(infoLocal);
       this.UsuarioLogado.set(usuario);
       this.loginAutomatico.set(true);
+    } else if (infoSession) {
+      const usuario: Usuario = JSON.parse(infoSession);
+      this.UsuarioLogado.set(usuario);
     }
   }
 
@@ -49,7 +53,7 @@ export class RequestService {
     if (this.loginAutomatico()) {
       this.router.navigate(['/home']);
     } else {
-      this.UsuarioLogado.set(null);
+      this.logout();
     }
   }
 }

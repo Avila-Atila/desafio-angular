@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 body {
   height: 100dvh;

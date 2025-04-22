@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -15,11 +15,11 @@ import { Router } from '@angular/router';
   templateUrl: './form-login.component.html',
   styleUrl: './form-login.component.css',
 })
-export class FormLoginComponent {
+export class FormLoginComponent implements OnInit {
   ngOnInit() {
     this.servico.autologin();
   }
-
+  public erroLogin: string | null = null;
   constructor(private router: Router, private servico: RequestService) {}
 
   login = new FormGroup({
@@ -27,8 +27,6 @@ export class FormLoginComponent {
     senha: new FormControl('', [Validators.required]),
     loginAutomatico: new FormControl(false),
   });
-
-  erroLogin: string | null = null;
 
   submitUsuario() {
     const autoLoginCheck = this.login.get('loginAutomatico')!.value;

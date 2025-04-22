@@ -1,0 +1,19 @@
+<div id="teste">
+  <div class="btn-group dropstart">
+    <i
+      class="fa-duotone fa-regular fa-circle-user botao__perfil"
+      style="
+        --fa-primary-color: #3e4260;
+        --fa-secondary-color: #ffffff;
+        --fa-secondary-opacity: 1;
+      "
+      data-bs-toggle="dropdown"
+    ></i>
+    <div class="dropdown-menu dropdown-menu-end">
+      <p>
+        {{ emailUsuario() }} <br />
+        <button (click)="logout()" class="btn btn-danger">deslogar</button>
+      </p>
+    </div>
+  </div>
+</div>

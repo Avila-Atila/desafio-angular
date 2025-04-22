@@ -40,12 +40,6 @@
   }
 }
 
-#teste {
-  padding: 1%;
-}
-
-#teste2 {
-  padding: 1%;
+aside {
   display: flex;
-  justify-content: space-between;
 }

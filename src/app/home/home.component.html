@@ -1,8 +1,11 @@
 <section class="section__home">
-  <div id="teste2">
-    <nav><button [routerLink]="">Home</button></nav>
-    <button>ssa</button>
-  </div>
+  <aside>
+    <app-side-bar></app-side-bar>
+    <app-user-profile
+      [emailUsuario]="servico.UsuarioLogado()?.email"
+      [logout]="servico.logout.bind(servico)"
+    ></app-user-profile>
+  </aside>
   <div class="section__home__bemvindo">
     <div class="section__home__bemvindo__div__titulo">
       <h4>Sistema de dados FORD</h4>
@@ -10,11 +13,10 @@
     <div class="section__home__bemvindo__div__mensagem">
       <p>
         Seja bem vindo(a)! <br />
-        Seu acesso como <span> {{ servico.UsuarioLogado()!.nome }} </span>foi
-        registrado em:
+        Seu acesso como <span> {{ servico.UsuarioLogado()!.nome }}</span
+        >, id: <span>{{ servico.UsuarioLogado()!.id }}</span> foi registrado em:
         {{ dataDeAceso }}
       </p>
     </div>
-    <button (click)="servico.logout()">deslogar</button>
   </div>
 </section>

@@ -1,0 +1,31 @@
+<i
+  class="fa-solid fa-bars botao__sidebar"
+  style="color: #63e6be"
+  (click)="controleSideBar()"
+></i>
+<nav class="sidebar" [class.sidenav-collapsed]="sideBarFechada()">
+  <div class="sidebar__div" *ngIf="!sideBarFechada()">
+    <img id="side__bar__logo" src="/ford.png" alt="" />
+    <i
+      class="fa-solid fa-bars sidebar__fechar"
+      style="color: #63e6be"
+      (click)="controleSideBar()"
+    ></i>
+  </div>
+  <div *ngIf="!sideBarFechada()" class="sidebar__div__links">
+    <button
+      [ngClass]="{ botao__selecionado: router.url === '/home' }"
+      class="sidebar__div__links__home"
+      [routerLink]="['/home']"
+    >
+      Home
+    </button>
+    <button
+      [ngClass]="{ botao__selecionado: router.url === '/dashboard' }"
+      class="sidebar__div__links__dashboard"
+      [routerLink]="['/dashboard']"
+    >
+      Dashboard
+    </button>
+  </div>
+</nav>

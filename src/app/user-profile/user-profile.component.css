@@ -1,0 +1,17 @@
+:host {
+  margin-left: auto;
+  padding: 1%;
+}
+.botao__perfil {
+  cursor: pointer;
+  transform-origin: right center;
+  transform: scale(1.2);
+}
+
+.btn-group.dropstart:hover > .dropdown-menu {
+  position: absolute;
+  inset: 0px 0px auto auto;
+  margin: 0px;
+  transform: translate3d(-21px, -1.5px, 0px);
+  display: block;
+}

@@ -1,10 +1,13 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RequestService } from '../services/request.service';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { SideBarComponent } from '../side-bar/side-bar.component';
+import { UserProfileComponent } from '../user-profile/user-profile.component';
+
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, SideBarComponent, UserProfileComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
