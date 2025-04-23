@@ -1,8 +1,9 @@
 <form [formGroup]="login" (ngSubmit)="submitUsuario()" id="form">
   <h2>Boas-vindas</h2>
   <div class="section__login__div__form__icon">
-    <i class="fa-solid fa-user" style="color: #63e6be"></i>
-
+    <label for="section__login__div__form__input__nome">
+      <i class="fa-solid fa-user" style="color: #63e6be"></i>
+    </label>
     <input
       placeholder="Insira seu nome de usuário"
       class="section__login__div__form__input"
@@ -11,9 +12,30 @@
       autocomplete="given-name"
       id="section__login__div__form__input__nome"
     />
+
+    <i
+      *ngIf="!login.value.nome && !login.controls['nome'].touched"
+      class="fa-solid fa-circle-info info__nome"
+      style="color: #63e6be"
+      title="Seu nome cadastrado"
+    ></i>
+    <i
+      *ngIf="!login.controls['nome'].valid && login.controls['nome'].touched"
+      class="fa-regular fa-circle-xmark info__nome"
+      style="color: #6f0000"
+      title="Seu nome cadastrado"
+    ></i>
+    <i
+      *ngIf="login.controls['nome'].valid"
+      class="fa-solid fa-check info__nome"
+      style="color: #63e6be"
+    ></i>
   </div>
   <div class="section__login__div__form__icon">
-    <i class="fa-solid fa-lock" style="color: #63e6be"></i>
+    <label for="section__login__div__form__input__senha">
+      <i class="fa-solid fa-lock" style="color: #63e6be"></i
+    ></label>
+
     <input
       placeholder="Insira sua senha"
       class="section__login__div__form__input"
@@ -43,7 +65,22 @@
           <i *ngIf="login.value.loginAutomatico" class="fa-solid fa-check"></i>
         </span>
       </div>
+
+      <i
+        *ngIf="
+          !login.controls['loginAutomatico'].valid &&
+          login.controls['loginAutomatico'].touched
+        "
+        class="fa-regular fa-circle-xmark info"
+        style="color: #6f0000"
+        title="Manter logado no sistema"
+      ></i>
     </label>
+    <i
+      class="fa-solid fa-circle-info info__autologin"
+      style="color: #63e6be"
+      title="Seu nome cadastrado"
+    ></i>
   </div>
 
   <button

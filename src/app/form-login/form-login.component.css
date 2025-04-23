@@ -4,7 +4,7 @@
   display: flex;
 }
 h2 {
-  color: #5ea589;
+  color: green;
 }
 .section__login__div__form__input {
   width: 100%;
@@ -39,17 +39,29 @@ h2 {
   }
   border: 2px solid gray;
   border-radius: 3px;
+  position: relative;
 }
 
+.info__nome {
+  position: absolute;
+  top: 18%;
+  left: 101%;
+  transform: scale(1);
+}
 .autologin {
+  width: 100%;
   margin-left: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  position: relative;
+  gap: 1%;
+
   p {
-    display: inline;
+    display: inline-block;
     margin: 0;
+    margin-left: auto;
+    font-size: 80%;
   }
 }
 
@@ -93,4 +105,11 @@ i {
 
 .validado:hover {
   background: rgb(51, 106, 224);
+}
+
+.info__autologin {
+  position: absolute;
+  top: 8%;
+  left: 100.5%;
+  transform: scale(1);
 }

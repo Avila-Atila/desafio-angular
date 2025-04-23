@@ -10,10 +10,21 @@
       data-bs-toggle="dropdown"
     ></i>
     <div class="dropdown-menu dropdown-menu-end">
-      <p>
-        {{ emailUsuario() }} <br />
-        <button (click)="logout()" class="btn btn-danger">deslogar</button>
-      </p>
+      <div id="teste">
+        <p>
+          <i
+            class="fa-duotone fa-regular fa-circle-user"
+            style="
+              --fa-primary-color: #3e4260;
+              --fa-secondary-color: #ffffff;
+              --fa-secondary-opacity: 1;
+            "
+          ></i>
+          {{ nomeUsuario() }}
+        </p>
+        <span class="dropdown__linha"></span>
+        <button (click)="logout()" class="dropdown__logout">Logout</button>
+      </div>
     </div>
   </div>
 </div>

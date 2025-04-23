@@ -15,3 +15,38 @@
   transform: translate3d(-21px, -1.5px, 0px);
   display: block;
 }
+
+.dropdown-menu {
+  padding: 0;
+  font-size: 0.9rem;
+  p {
+    text-align: start;
+    margin: 0;
+    padding: 4% 16%;
+    i {
+      margin-right: 10%;
+    }
+  }
+  height: fit-content;
+  #teste {
+    display: flex;
+    flex-direction: column;
+
+    gap: 50%;
+  }
+}
+
+.dropdown__linha {
+  background-color: rgba(128, 128, 128, 0.432);
+  width: 100%;
+  display: inline-block;
+  height: 2px;
+}
+
+.dropdown__logout {
+  border: none;
+  background-color: white;
+  color: green;
+  width: min-content;
+  padding: 4% 6%;
+}

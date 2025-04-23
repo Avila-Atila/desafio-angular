@@ -7,6 +7,6 @@ import { Component, input, Input } from '@angular/core';
   styleUrl: './user-profile.component.css',
 })
 export class UserProfileComponent {
-  emailUsuario = input();
+  nomeUsuario = input();
   @Input() logout!: () => void;
 }

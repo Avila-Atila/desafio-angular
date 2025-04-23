@@ -35,8 +35,7 @@
   flex: 1;
   padding: 2%;
   span {
-    color: blue;
-    text-transform: capitalize;
+    color: green;
   }
 }
 
