@@ -1,53 +1,42 @@
-<form [formGroup]="login" (ngSubmit)="submitUsuario()" id="form">
-  <h2>Boas-vindas</h2>
-  <div class="section__login__div__form__icon">
-    <label for="section__login__div__form__input__nome">
-      <i class="fa-solid fa-user" style="color: #63e6be"></i>
-    </label>
+<h2 class="text-success text-center">Boas-vindas</h2>
+<form
+  [formGroup]="login"
+  (ngSubmit)="submitUsuario()"
+  id="form"
+  class="d-flex flex-column"
+>
+  <div class="input-group"></div>
+  <div class="form-floating mb-3">
     <input
       placeholder="Insira seu nome de usuário"
-      class="section__login__div__form__input"
+      class="form-control"
       formControlName="nome"
       name="nome"
       autocomplete="given-name"
       id="section__login__div__form__input__nome"
     />
-
-    <i
-      *ngIf="!login.value.nome && !login.controls['nome'].touched"
-      class="fa-solid fa-circle-info info__nome"
-      style="color: #63e6be"
-      title="Seu nome cadastrado"
-    ></i>
-    <i
-      *ngIf="!login.controls['nome'].valid && login.controls['nome'].touched"
-      class="fa-regular fa-circle-xmark info__nome"
-      style="color: #6f0000"
-      title="Seu nome cadastrado"
-    ></i>
-    <i
-      *ngIf="login.controls['nome'].valid"
-      class="fa-solid fa-check info__nome"
-      style="color: #63e6be"
-    ></i>
+    <label for="section__login__div__form__input__nome"
+      >Insira seu nome de usuário</label
+    >
   </div>
-  <div class="section__login__div__form__icon">
-    <label for="section__login__div__form__input__senha">
-      <i class="fa-solid fa-lock" style="color: #63e6be"></i
-    ></label>
-
+  <div class="form-floating mb-3">
     <input
       placeholder="Insira sua senha"
-      class="section__login__div__form__input"
+      class="form-control"
       type="password"
       formControlName="senha"
       name="senha"
       id="section__login__div__form__input__senha"
     />
+    <label for="section__login__div__form__input__senha"
+      >Insira sua senha</label
+    >
   </div>
-  <div class="autologin">
-    <p>Logar automaticamente</p>
-    <label class="autologin__label">
+  <div
+    class="container-fluid d-flex justify-content-end align-items-center p-0 mb-3"
+  >
+    <p class="mb-0">Logar automaticamente</p>
+    <label class="autologin__label ms-1">
       <input
         name="autoLogin"
         class="autologin__checkbox"
@@ -65,26 +54,11 @@
           <i *ngIf="login.value.loginAutomatico" class="fa-solid fa-check"></i>
         </span>
       </div>
-
-      <i
-        *ngIf="
-          !login.controls['loginAutomatico'].valid &&
-          login.controls['loginAutomatico'].touched
-        "
-        class="fa-regular fa-circle-xmark info"
-        style="color: #6f0000"
-        title="Manter logado no sistema"
-      ></i>
     </label>
-    <i
-      class="fa-solid fa-circle-info info__autologin"
-      style="color: #63e6be"
-      title="Seu nome cadastrado"
-    ></i>
   </div>
 
   <button
-    class="section__login__div__form__submit"
+    class="btn btn-primary"
     type="submit"
     [disabled]="!login.valid"
     [class.validado]="login.valid"
