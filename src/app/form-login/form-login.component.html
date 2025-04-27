@@ -5,33 +5,51 @@
   id="form"
   class="d-flex flex-column"
 >
-  <div class="input-group"></div>
-  <div class="form-floating mb-3">
-    <input
-      placeholder="Insira seu nome de usuário"
-      class="form-control"
-      formControlName="nome"
-      name="nome"
-      autocomplete="given-name"
-      id="section__login__div__form__input__nome"
-    />
-    <label for="section__login__div__form__input__nome"
-      >Insira seu nome de usuário</label
-    >
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"
+      ><i class="fa-solid fa-user"></i
+    ></span>
+
+    <div class="form-floating">
+      <input
+        placeholder="Insira seu nome de usuário"
+        class="form-control"
+        formControlName="nome"
+        name="nome"
+        autocomplete="given-name"
+        id="section__login__div__form__input__nome"
+      />
+      <label for="section__login__div__form__input__nome"
+        >Insira seu nome de usuário</label
+      >
+    </div>
   </div>
-  <div class="form-floating mb-3">
-    <input
-      placeholder="Insira sua senha"
-      class="form-control"
-      type="password"
-      formControlName="senha"
-      name="senha"
-      id="section__login__div__form__input__senha"
-    />
-    <label for="section__login__div__form__input__senha"
-      >Insira sua senha</label
-    >
+
+  <div class="input-group mb-3 login__password__input">
+    <span class="input-group-text" id="basic-addon2"
+      ><i class="fa-solid fa-lock"></i
+    ></span>
+    <div class="form-floating">
+      <input
+        placeholder="Insira sua senha"
+        class="form-control"
+        [type]="senhaVisivel ? 'text' : 'password'"
+        formControlName="senha"
+        name="senha"
+        id="section__login__div__form__input__senha"
+      />
+      <label for="section__login__div__form__input__senha"
+        >Insira sua senha</label
+      >
+    </div>
+    <i
+      (click)="mostrarSenha()"
+      [class.fa-eye]="senhaVisivel"
+      [class.fa-eye-slash]="!senhaVisivel"
+      class="fa-regular form__show__password"
+    ></i>
   </div>
+
   <div
     class="container-fluid d-flex justify-content-end align-items-center p-0 mb-3"
   >
@@ -57,12 +75,7 @@
     </label>
   </div>
 
-  <button
-    class="btn btn-primary"
-    type="submit"
-    [disabled]="!login.valid"
-    [class.validado]="login.valid"
-  >
+  <button class="btn btn-primary" type="submit" [disabled]="!login.valid">
     Entrar
   </button>
 

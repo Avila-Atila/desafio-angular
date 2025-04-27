@@ -19,8 +19,10 @@ export class FormLoginComponent implements OnInit {
   ngOnInit() {
     this.servico.autologin();
   }
-  public erroLogin: string | null = null;
+
   constructor(private router: Router, private servico: RequestService) {}
+  public erroLogin: string | null = null;
+  public senhaVisivel: boolean = false;
 
   login = new FormGroup({
     nome: new FormControl('', [Validators.required]),
@@ -28,7 +30,11 @@ export class FormLoginComponent implements OnInit {
     loginAutomatico: new FormControl(false),
   });
 
-  submitUsuario() {
+  mostrarSenha(): void {
+    this.senhaVisivel = !this.senhaVisivel;
+  }
+
+  submitUsuario(): void {
     const autoLoginCheck = this.login.get('loginAutomatico')!.value;
     this.servico.novoLogin(this.login).subscribe({
       next: (response) => {

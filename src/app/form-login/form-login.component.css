@@ -5,6 +5,18 @@
   flex-direction: column;
   justify-content: center;
 }
+.login__password__input {
+  position: relative;
+}
+
+.form__show__password {
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
 
 .autologin__checkbox {
   display: none;
@@ -17,6 +29,7 @@
   border-radius: 1rem;
   display: flex;
   position: relative;
+  cursor: pointer;
 }
 .autologin__control {
   width: 30%;
