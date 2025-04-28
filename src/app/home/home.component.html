@@ -1,4 +1,4 @@
-<section class="section__home">
+<section class="container-fluid">
   <aside>
     <app-side-bar></app-side-bar>
     <app-user-profile
@@ -6,15 +6,18 @@
       [logout]="servico.logout.bind(servico)"
     ></app-user-profile>
   </aside>
-  <div class="section__home__bemvindo">
-    <div class="section__home__bemvindo__div__titulo">
-      <h4>Sistema de dados FORD</h4>
+  <div class="container w-50 opacity-75 border px-0 rounded-1">
+    <div class="container bg-secondary-subtle py-1">
+      <h6>Sistema de dados FORD</h6>
     </div>
-    <div class="section__home__bemvindo__div__mensagem">
+    <div class="container bg-white py-1 rounded-1">
       <p>
         Seja bem vindo(a)! <br />
-        Seu acesso como <span> {{ servico.UsuarioLogado()!.email }}</span
-        >, id: <span>{{ servico.UsuarioLogado()!.id }}</span> foi registrado em:
+        Seu acesso como
+        <span class="text-success"> {{ servico.UsuarioLogado()!.email }}</span
+        >, id:
+        <span class="text-success">{{ servico.UsuarioLogado()!.id }}</span> foi
+        registrado em:
         {{ dataDeAceso }}
       </p>
     </div>
