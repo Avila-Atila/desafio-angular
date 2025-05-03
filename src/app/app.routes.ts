@@ -5,7 +5,7 @@ export const routes: Routes = [
     path: 'login',
     pathMatch: 'full',
     loadComponent() {
-      return import('./login/login.component').then(
+      return import('./pages/login/login.component').then(
         (component) => component.LoginComponent
       );
     },
@@ -14,7 +14,7 @@ export const routes: Routes = [
     path: 'home',
     pathMatch: 'full',
     loadComponent() {
-      return import('./home/home.component').then(
+      return import('./pages/home/home.component').then(
         (component) => component.HomeComponent
       );
     },

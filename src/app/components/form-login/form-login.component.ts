@@ -5,7 +5,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RequestService } from '../services/request.service';
+import { LoginService } from '../../services/login.service';
+
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -20,7 +21,7 @@ export class FormLoginComponent implements OnInit {
     this.servico.autologin();
   }
 
-  constructor(private router: Router, private servico: RequestService) {}
+  constructor(private router: Router, private servico: LoginService) {}
   public erroLogin: string | null = null;
   public senhaVisivel: boolean = false;
 

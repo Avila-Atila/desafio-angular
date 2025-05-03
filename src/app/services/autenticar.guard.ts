@@ -1,9 +1,9 @@
 import { inject } from '@angular/core';
-import { RequestService } from './request.service';
+import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 
 export const autenticarGuard = () => {
-  const verificar = inject(RequestService);
+  const verificar = inject(LoginService);
   const router = inject(Router);
   if (!verificar.UsuarioLogado()) {
     router.navigate(['login']);

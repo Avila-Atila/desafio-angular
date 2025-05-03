@@ -1,9 +1,9 @@
 import { Component, inject, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RequestService } from '../services/request.service';
+import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
-import { SideBarComponent } from '../side-bar/side-bar.component';
-import { UserProfileComponent } from '../user-profile/user-profile.component';
+import { UserProfileComponent } from '../../components/user-profile/user-profile.component';
+import { SideBarComponent } from '../../components/side-bar/side-bar.component';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,7 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
 export class HomeComponent {
   dataDeAceso: string | null = null;
 
-  servico = inject(RequestService);
+  servico = inject(LoginService);
   constructor(private router: Router) {
     this.dataDeAceso = new Date().toLocaleDateString('pt-br', {
       hour: '2-digit',

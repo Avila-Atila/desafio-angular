@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Usuario } from './models/usuario.model';
+import { Usuario } from '../models/usuario.model';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RequestService {
+export class LoginService {
   UsuarioLogado = signal<Usuario | null>(null);
   loginAutomatico = signal<boolean>(false);
   private chaveUsuario: string = 'usuario';
