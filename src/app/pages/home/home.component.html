@@ -1,11 +1,11 @@
-<section class="container-fluid">
-  <aside>
+<section class="container-fluid px-0">
+  <div class="d-flex">
     <app-side-bar></app-side-bar>
     <app-user-profile
       [nomeUsuario]="servico.UsuarioLogado()?.nome"
       [logout]="servico.logout.bind(servico)"
     ></app-user-profile>
-  </aside>
+  </div>
   <div class="container w-50 opacity-75 border px-0 rounded-1">
     <div class="container bg-secondary-subtle py-1">
       <h6>Sistema de dados FORD</h6>

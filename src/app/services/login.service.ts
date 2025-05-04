@@ -4,16 +4,10 @@ import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Usuario } from '../models/usuario.model';
 import { Router } from '@angular/router';
-
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  UsuarioLogado = signal<Usuario | null>(null);
-  loginAutomatico = signal<boolean>(false);
-  private chaveUsuario: string = 'usuario';
-  private apiLogin = 'http://localhost:3001/login';
-
   constructor(private http: HttpClient, private router: Router) {
     const infoLocal = localStorage.getItem(this.chaveUsuario);
     const infoSession = sessionStorage.getItem(this.chaveUsuario);
@@ -26,6 +20,11 @@ export class LoginService {
       this.UsuarioLogado.set(usuario);
     }
   }
+
+  UsuarioLogado = signal<Usuario | null>(null);
+  loginAutomatico = signal<boolean>(false);
+  private chaveUsuario: string = 'usuario';
+  private apiLogin = 'http://localhost:3001/login';
 
   novoLogin(info: FormGroup): Observable<Usuario> {
     return this.http.post<Usuario>(this.apiLogin, info.value);

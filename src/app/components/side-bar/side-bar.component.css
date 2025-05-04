@@ -28,6 +28,7 @@ i {
 
 #side__bar__logo {
   width: 30%;
+
   display: inline-block;
 }
 
@@ -48,5 +49,5 @@ i {
 }
 
 .botao__selecionado {
-  border-left: 3px solid orange !important;
+  border-left: 3.5px solid orange !important;
 }
