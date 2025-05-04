@@ -8,7 +8,7 @@
   </div>
 
   <h1 class="text-primary text-center">Dashboard FORD</h1>
-  <section class="container-fluid" *ngIf="cars$ | async as carros">
+  <section class="container-fluid">
     <div class="row row-gap-2 row-gap-md-0 justify-content-between">
       <div class="col-6 col-md-3 col-xl-2">
         <div class="card shadow-sm rounded-0 h-100">
@@ -17,11 +17,10 @@
             <select
               name="selectCar"
               #selectCar
-              id=""
               class="form-select"
               (change)="mudarCarro(selectCar.value)"
+              *ngIf="cars$ | async as carros"
             >
-              <option value="" disabled selected></option>
               <option *ngFor="let opt of carros" [value]="opt.id">
                 {{ opt.vehicle }}
               </option>
@@ -90,7 +89,7 @@
         </tr>
 
         <tr>
-          <th scope="row"><input type="text" /></th>
+          <th scope="row"><input type="text" #selectVin name="selectVin" /></th>
           <td></td>
           <td></td>
           <td></td>
