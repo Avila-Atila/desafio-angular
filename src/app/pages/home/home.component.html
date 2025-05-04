@@ -1,4 +1,4 @@
-<section class="container-fluid px-0">
+<section class="container-fluid px-0 d-flex flex-column">
   <div class="d-flex">
     <app-side-bar></app-side-bar>
     <app-user-profile
@@ -6,20 +6,25 @@
       [logout]="servico.logout.bind(servico)"
     ></app-user-profile>
   </div>
-  <div class="container w-50 opacity-75 border px-0 rounded-1">
-    <div class="container bg-secondary-subtle py-1">
-      <h6>Sistema de dados FORD</h6>
-    </div>
-    <div class="container bg-white py-1 rounded-1">
-      <p>
-        Seja bem vindo(a)! <br />
-        Seu acesso como
-        <span class="text-success"> {{ servico.UsuarioLogado()!.email }}</span
-        >, id:
-        <span class="text-success">{{ servico.UsuarioLogado()!.id }}</span> foi
-        registrado em:
-        {{ dataDeAceso }}
-      </p>
+  <div class="row justify-content-center m-0 my-auto h-50">
+    <div class="col-7 col-sm-6 col-md-4">
+      <div class="opacity-75 border px-0 rounded-1 h-75 shadow">
+        <div class="container bg-body-secondary py-1">
+          <h6>Sistema de dados FORD</h6>
+        </div>
+        <div class="container py-1 bg-light rounded-1 h-100">
+          <p>
+            <span class="text-primary">Seja bem vindo(a)!</span> <br />
+            Seu acesso como
+            <span class="text-success">
+              {{ servico.UsuarioLogado()!.email }}</span
+            >, id:
+            <span class="text-success">{{ servico.UsuarioLogado()!.id }}</span>
+            foi registrado em:
+            {{ dataDeAceso }}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

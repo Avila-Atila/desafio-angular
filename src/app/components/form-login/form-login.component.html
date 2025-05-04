@@ -1,4 +1,3 @@
-<h2 class="text-success text-center">Boas-vindas</h2>
 <form
   [formGroup]="login"
   (ngSubmit)="submitUsuario()"
@@ -7,7 +6,7 @@
 >
   <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1"
-      ><i class="fa-solid fa-user"></i
+      ><i class="fa-solid fa-user text-success"></i
     ></span>
 
     <div class="form-floating">
@@ -27,7 +26,7 @@
 
   <div class="input-group mb-3 login__password__input">
     <span class="input-group-text" id="basic-addon2"
-      ><i class="fa-solid fa-lock"></i
+      ><i class="fa-solid fa-lock text-success"></i
     ></span>
     <div class="form-floating">
       <input
@@ -79,5 +78,7 @@
     Entrar
   </button>
 
-  <p *ngIf="erroLogin !== null">Erro: {{ erroLogin }}</p>
+  <p *ngIf="erroLogin !== null">
+    <span class="text-danger">Erro:</span> {{ erroLogin }}
+  </p>
 </form>

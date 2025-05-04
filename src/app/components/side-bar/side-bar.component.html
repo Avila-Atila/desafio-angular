@@ -4,8 +4,11 @@
   (click)="controleSideBar()"
 ></i>
 
-<nav class="sidebar" [class.sidenav-collapsed]="sideBarFechada()">
-  <div class="sidebar__div" *ngIf="!sideBarFechada()">
+<nav class="sidebar" [class.sidebar-fechada]="sideBarFechada()">
+  <div
+    class="p-1 d-flex justify-content-between align-items-center"
+    *ngIf="!sideBarFechada()"
+  >
     <img id="side__bar__logo" src="/ford.png" alt="" />
     <i
       class="fa-solid far fas fas fa-window-close sidebar__fechar"
@@ -31,3 +34,7 @@
     </button>
   </div>
 </nav>
+<div
+  [class.cover-fechada]="sideBarFechada()"
+  class="bg-success opacity-50 cover"
+></div>

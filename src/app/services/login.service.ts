@@ -44,8 +44,8 @@ export class LoginService {
   logout() {
     localStorage.removeItem(this.chaveUsuario);
     sessionStorage.removeItem(this.chaveUsuario);
-    this.UsuarioLogado.set(null);
     this.router.navigate(['login']);
+    this.UsuarioLogado.set(null);
   }
 
   autologin() {
