@@ -73,7 +73,7 @@
     <img
       [src]="carroAtual()?.img"
       alt="Imagem do carro atualmente selecionado"
-      class="img-fluid"
+      class="img-fluid w-50"
     />
   </div>
   <div class="table-responsive">
@@ -89,12 +89,19 @@
         </tr>
 
         <tr>
-          <th scope="row"><input type="text" #selectVin name="selectVin" /></th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <th scope="row">
+            <input
+              type="text"
+              [formControl]="vin"
+              (input)="pesquisarVin(vin.value!)"
+              name="selectVin"
+            />
+          </th>
+          <td>{{ vinInfo()?.odometro }}</td>
+          <td>{{ vinInfo()?.nivelCombustivel }}</td>
+          <td>{{ vinInfo()?.status }}</td>
+          <td>{{ vinInfo()?.lat }}</td>
+          <td>{{ vinInfo()?.long }}</td>
         </tr>
         <tr>
           <th scope="row" class="border-0"></th>
