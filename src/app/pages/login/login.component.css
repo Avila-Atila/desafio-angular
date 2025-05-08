@@ -5,7 +5,7 @@
 }
 
 .div-login-car {
-  background-image: url("/ranger.png");
+  background-image: url("http://localhost:3001/img/ranger.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

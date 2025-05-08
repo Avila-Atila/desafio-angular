@@ -8,110 +8,20 @@
   </div>
 
   <h1 class="text-primary text-center">Dashboard FORD</h1>
-  <section class="container-fluid">
-    <div class="row row-gap-2 row-gap-md-0 justify-content-between">
-      <div class="col-6 col-md-3 col-xl-2">
-        <div class="card shadow-sm rounded-0 h-100">
-          <div class="card-header">Veículo</div>
-          <div class="card-body">
-            <select
-              name="selectCar"
-              #selectCar
-              class="form-select"
-              (change)="mudarCarro(selectCar.value)"
-              *ngIf="cars$ | async as carros"
-            >
-              <option *ngFor="let opt of carros" [value]="opt.id">
-                {{ opt.vehicle }}
-              </option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3 col-xl-2">
-        <div class="card shadow-sm rounded-0 h-100">
-          <div class="card-header">Total de Vendas</div>
-          <div class="card-body">
-            <span class="text-primary fw-bold">{{
-              carroAtual()?.volumetotal
-            }}</span>
-            <br />
-            <span class="small">Uni.</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3 col-xl-2">
-        <div class="card shadow-sm rounded-0 h-100">
-          <div class="card-header">Conectados</div>
-          <div class="card-body">
-            <span class="text-primary fw-bold">{{
-              carroAtual()?.connected
-            }}</span>
-            <br />
-            <span class="small">Uni.</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3 col-xl-2">
-        <div class="card shadow-sm rounded-0 h-100">
-          <div class="card-header">Update Software</div>
-          <div class="card-body">
-            <span class="text-primary fw-bold">{{
-              carroAtual()?.softwareUpdates
-            }}</span>
-            <br />
-            <span class="small">Uni.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="container-fluid">
+    <app-cards (imagemCarroAtual)="mudarImagemCarro($event)"></app-cards>
+  </div>
 
   <div
     class="container-sm d-flex flex-fill justify-content-center align-items-center"
   >
     <img
-      [src]="carroAtual()?.img"
+      [src]="imagemCarroAtual"
       alt="Imagem do carro atualmente selecionado"
       class="img-fluid w-50"
     />
   </div>
   <div class="table-responsive">
-    <table class="table table-sm table-bordered border-black m-0">
-      <tbody>
-        <tr>
-          <th class="text-white" scope="col">Código - Vin</th>
-          <th class="text-white" scope="col">Odômetro</th>
-          <th class="text-white" scope="col">Nível de Combustível</th>
-          <th class="text-white" scope="col">Status</th>
-          <th class="text-white" scope="col">Lat.</th>
-          <th class="text-white" scope="col">Long.</th>
-        </tr>
-
-        <tr>
-          <th scope="row">
-            <input
-              type="text"
-              [formControl]="vin"
-              (input)="pesquisarVin(vin.value!)"
-              name="selectVin"
-            />
-          </th>
-          <td>{{ vinInfo()?.odometro }}</td>
-          <td>{{ vinInfo()?.nivelCombustivel }}</td>
-          <td>{{ vinInfo()?.status }}</td>
-          <td>{{ vinInfo()?.lat }}</td>
-          <td>{{ vinInfo()?.long }}</td>
-        </tr>
-        <tr>
-          <th scope="row" class="border-0"></th>
-          <th scope="row" class="border-0"></th>
-          <th scope="row" class="border-0"></th>
-          <th scope="row" class="border-0"></th>
-          <th scope="row" class="border-0"></th>
-          <th scope="row" class="border-0"></th>
-        </tr>
-      </tbody>
-    </table>
+    <app-vinsearch></app-vinsearch>
   </div>
 </section>

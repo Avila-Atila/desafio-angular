@@ -1,0 +1,36 @@
+<table class="table table-sm table-bordered border-black m-0">
+  <tbody>
+    <tr>
+      <th class="text-white" scope="col">Código - Vin</th>
+      <th class="text-white" scope="col">Odômetro</th>
+      <th class="text-white" scope="col">Nível de Combustível</th>
+      <th class="text-white" scope="col">Status</th>
+      <th class="text-white" scope="col">Lat.</th>
+      <th class="text-white" scope="col">Long.</th>
+    </tr>
+
+    <tr>
+      <th scope="row">
+        <input
+          type="text"
+          [formControl]="vin"
+          (input)="pesquisarVin()"
+          name="selectVin"
+        />
+      </th>
+      <td>{{ vinInfo()?.odometro }}</td>
+      <td>{{ vinInfo()?.nivelCombustivel }}</td>
+      <td>{{ vinInfo()?.status }}</td>
+      <td>{{ vinInfo()?.lat }}</td>
+      <td>{{ vinInfo()?.long }}</td>
+    </tr>
+    <tr>
+      <th scope="row" class="border-0"></th>
+      <th scope="row" class="border-0"></th>
+      <th scope="row" class="border-0"></th>
+      <th scope="row" class="border-0"></th>
+      <th scope="row" class="border-0"></th>
+      <th scope="row" class="border-0"></th>
+    </tr>
+  </tbody>
+</table>

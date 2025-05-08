@@ -1,0 +1,54 @@
+<div class="row row-gap-2 row-gap-md-0 justify-content-between">
+  <div class="col-6 col-md-3 col-xl-2">
+    <div class="card shadow-sm rounded-0 h-100">
+      <div class="card-header">Veículo</div>
+      <div class="card-body">
+        <select
+          name="selectCar"
+          #selectCar
+          class="form-select"
+          (change)="mudarCarro(selectCar.value)"
+          *ngIf="cars$ | async as carros"
+        >
+          <option *ngFor="let opt of carros" [value]="opt.id">
+            {{ opt.vehicle }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3 col-xl-2">
+    <div class="card shadow-sm rounded-0 h-100">
+      <div class="card-header">Total de Vendas</div>
+      <div class="card-body">
+        <span class="text-primary fw-bold">{{
+          carroAtual()?.volumetotal
+        }}</span>
+        <br />
+        <span class="small">Uni.</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3 col-xl-2">
+    <div class="card shadow-sm rounded-0 h-100">
+      <div class="card-header">Conectados</div>
+      <div class="card-body">
+        <span class="text-primary fw-bold">{{ carroAtual()?.connected }}</span>
+        <br />
+        <span class="small">Uni.</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3 col-xl-2">
+    <div class="card shadow-sm rounded-0 h-100">
+      <div class="card-header">Update Software</div>
+      <div class="card-body">
+        <span class="text-primary fw-bold">{{
+          carroAtual()?.softwareUpdates
+        }}</span>
+        <br />
+        <span class="small">Uni.</span>
+      </div>
+    </div>
+  </div>
+</div>
