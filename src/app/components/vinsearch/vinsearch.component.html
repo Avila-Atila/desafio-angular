@@ -16,10 +16,17 @@
           [formControl]="vin"
           (input)="pesquisarVin()"
           name="selectVin"
+          [class.vin__search__error]="vinSearchError()"
         />
       </th>
-      <td>{{ vinInfo()?.odometro }}</td>
-      <td>{{ vinInfo()?.nivelCombustivel }}</td>
+      <td>
+        {{ vinInfo()?.odometro }}
+        <span *ngIf="vinInfo()" class="small">Km</span>
+      </td>
+      <td>
+        {{ vinInfo()?.nivelCombustivel }}
+        <span *ngIf="vinInfo()" class="small">%</span>
+      </td>
       <td>{{ vinInfo()?.status }}</td>
       <td>{{ vinInfo()?.lat }}</td>
       <td>{{ vinInfo()?.long }}</td>

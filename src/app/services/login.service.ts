@@ -27,7 +27,6 @@ export class LoginService {
   private apiLogin = 'http://localhost:3001/login';
 
   novoLogin(info: FormGroup): Observable<Usuario> {
-    console.log(info.value);
     return this.http.post<Usuario>(this.apiLogin, info.value);
   }
 
