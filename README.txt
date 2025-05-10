@@ -1,6 +1,6 @@
 Desafio Angular de Átila Garcia Ávila
 
-O projeto pode ser iniciado a partir do arquivo iniciar.bat, ele executa os comandos necessários em terminais diferentes e abre automaticamente o navegador na página de login. Minha sala utilizou as informações mockadas diretamente na API, então não possuímos o arquivo db.json. Todas as imagens do meu projeto (com excessão do ícone da barra do navegador) vem diretamente da API. A função de login automático funciona armazenando as informações que retornam da API no local storage do navegador, então é possível se manter logado mesmo que o usuário feche o navegador. 
+Para facilitar o envio, repliquei a estrutura do GitHub, excluindo as pastas .angular e node_modules, o que tornou o arquivo menor e mais fácil de ser compartilhado. Para poder prosseguir, é preciso dar npm install dentro da pasta do projeto. O projeto pode ser iniciado a partir do arquivo iniciar.bat, ele executa os comandos necessários em terminais diferentes e abre automaticamente o navegador na página de login. Minha sala utilizou as informações mockadas diretamente na API, então não possuímos o arquivo db.json. Todas as imagens do meu projeto (com excessão do ícone da barra do navegador) vem diretamente da API. A função de login automático funciona armazenando as informações que retornam da API no local storage do navegador, então é possível se manter logado mesmo que o usuário feche o navegador. 
 
 O link do repositório da atividade é: 
 https://github.com/Avila-Atila/desafio-angular
