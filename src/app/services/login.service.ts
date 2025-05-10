@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Usuario } from '../models/usuario.model';
+import { Usuario } from '../models/Usuario.Interface';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
@@ -30,8 +30,8 @@ export class LoginService {
     return this.http.post<Usuario>(this.apiLogin, info.value);
   }
 
-  loginCorreto(info: Usuario, loginAutomatico: boolean) {
-    if (loginAutomatico) {
+  loginCorreto(info: Usuario, loginAutomaticoCheckbox: boolean) {
+    if (loginAutomaticoCheckbox) {
       localStorage.setItem(this.chaveUsuario, JSON.stringify(info));
       this.UsuarioLogado.set(info);
       this.loginAutomatico.set(true);

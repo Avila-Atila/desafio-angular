@@ -6,7 +6,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
-
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -21,9 +20,10 @@ export class FormLoginComponent implements OnInit {
     this.servico.autologin();
   }
 
-  constructor(private router: Router, private servico: LoginService) {}
   public erroLogin: string | null = null;
   public senhaVisivel: boolean = false;
+
+  constructor(private router: Router, private servico: LoginService) {}
 
   login = new FormGroup({
     nome: new FormControl('', [Validators.required]),
@@ -38,9 +38,9 @@ export class FormLoginComponent implements OnInit {
   submitUsuario(): void {
     const autoLoginCheck = this.login.get('loginAutomatico')!.value;
     this.servico.novoLogin(this.login).subscribe({
-      next: (response) => {
+      next: (resp) => {
         this.erroLogin = null;
-        this.servico.loginCorreto(response, autoLoginCheck!);
+        this.servico.loginCorreto(resp, autoLoginCheck!);
         this.router.navigate(['/home']);
       },
       error: (err) => (this.erroLogin = err.error.message),

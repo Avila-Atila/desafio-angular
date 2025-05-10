@@ -1,5 +1,5 @@
 :host {
-  background-image: url("/ranger.png");
+  background-image: url("http://localhost:3001/img/ranger.png");
   height: 100%;
   display: flex;
   background-repeat: no-repeat;

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Output, signal } from '@angular/core';
-import { Carros } from '../../models/Carros.interface';
+import { Carros } from '../../models/Carros.Interface';
 import { tap } from 'rxjs';
 import { VehiclesService } from '../../services/vehicles.service';
 import { CommonModule } from '@angular/common';

@@ -16,6 +16,7 @@ export class SideBarComponent {
   controleSideBar() {
     this.sideBarFechada.set(!this.sideBarFechada());
   }
+
   @HostListener('document:click', ['$event.target'])
   onclick(target: HTMLElement) {
     if (!this.host.nativeElement.contains(target)) {

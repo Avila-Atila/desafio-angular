@@ -14,7 +14,6 @@
         <input
           type="text"
           [formControl]="vin"
-          (input)="pesquisarVin()"
           name="selectVin"
           [class.vin__search__error]="vinSearchError()"
         />
@@ -27,7 +26,16 @@
         {{ vinInfo()?.nivelCombustivel }}
         <span *ngIf="vinInfo()" class="small">%</span>
       </td>
-      <td>{{ vinInfo()?.status }}</td>
+      <td>
+        {{ vinInfo()?.status }}
+        <span
+          *ngIf="vinInfo()?.status"
+          class="fa-solid fa-circle"
+          [ngClass]="
+            vinInfo()?.status === 'on' ? 'text-success' : 'text-danger'
+          "
+        ></span>
+      </td>
       <td>{{ vinInfo()?.lat }}</td>
       <td>{{ vinInfo()?.long }}</td>
     </tr>
